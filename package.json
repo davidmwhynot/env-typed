@@ -1,10 +1,10 @@
 {
-	"name": "ts-env",
+	"name": "env-typed",
 	"version": "0.0.0",
 	"description": "Utility functions for type-safe environment variables.",
 	"author": "David Whynot <davidmwhynot@gmail.com>",
 	"license": "MIT",
-	"homepage": "https://github.com/davidmwhynot/ts-env#readme",
+	"homepage": "https://github.com/davidmwhynot/env-typed#readme",
 	"main": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",
 	"files": [
@@ -13,10 +13,10 @@
 	"keywords": [],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/davidmwhynot/ts-env.git"
+		"url": "git+https://github.com/davidmwhynot/env-typed.git"
 	},
 	"bugs": {
-		"url": "https://github.com/davidmwhynot/ts-env/issues"
+		"url": "https://github.com/davidmwhynot/env-typed/issues"
 	},
 	"jest": {
 		"collectCoverageFrom": [
