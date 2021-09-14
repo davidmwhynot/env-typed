@@ -1,9 +1,9 @@
-# typed-env
+# ts-env
 
 Utility functions for type-safe environment variables.
 
 ```ts
-import { requireEnv, numberEnv, boolEnv } from 'typed-env';
+import { requireEnv, numberEnv, boolEnv } from 'ts-env';
 
 // The type of 'FOO' will be 'string' instead of 'string | null'.
 const FOO = requireEnv('FOO');
@@ -14,13 +14,13 @@ const FOO = requireEnv('FOO');
 npm:
 
 ```sh
-npm install --save typed-env
+npm install --save ts-env
 ```
 
 yarn:
 
 ```sh
-yarn add typed-env
+yarn add ts-env
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ yarn add typed-env
 ### basic
 
 ```ts
-import { requireEnv, numberEnv, boolEnv } from 'typed-env';
+import { requireEnv, numberEnv, boolEnv } from 'ts-env';
 
 const FOO = requireEnv('FOO');
 ```
