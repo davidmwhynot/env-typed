@@ -1,12 +1,13 @@
 {
 	"name": "env-typed",
-	"version": "0.0.0",
+	"version": "1.0.1",
 	"description": "Utility functions for type-safe environment variables.",
 	"author": "David Whynot <davidmwhynot@gmail.com>",
 	"license": "MIT",
 	"homepage": "https://github.com/davidmwhynot/env-typed#readme",
 	"main": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",
+	"types": "./lib/esm/index.d.ts",
 	"files": [
 		"./lib"
 	],
