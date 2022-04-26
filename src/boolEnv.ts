@@ -1,11 +1,12 @@
 import { env } from './env';
 
-import { defined } from './utils/defined';
-import { getTrueVals } from './utils/trueVals';
-import { getFalseVals } from './utils/falseVals';
-import { missingEnvVar } from './utils/missingEnvVar';
+import { defined } from './lib/defined';
+import { getTrueVals } from './lib/trueVals';
+import { getFalseVals } from './lib/falseVals';
+import { missingEnvVar } from './lib/missingEnvVar';
 import { EnvVarError } from './EnvVarError';
 import { BoolEnvOptions, FallbackValue } from './types';
+import { getPrefixedKey } from './lib/prefix';
 
 /**
  * TODO
@@ -25,14 +26,14 @@ export function boolEnv(
 	name: string,
 	fallbackOrOptions?: BoolEnvOptions | FallbackValue<boolean>
 ): boolean {
-	const raw = env(name);
-
+	let disablePrefix: boolean | undefined;
 	let fallback: FallbackValue<boolean> | undefined;
 	let trueVals = getTrueVals();
 	let falseVals = getFalseVals();
 
 	if (defined(fallbackOrOptions)) {
 		if (typeof fallbackOrOptions === 'object') {
+			disablePrefix = fallbackOrOptions.disablePrefix;
 			fallback = fallbackOrOptions.fallback;
 
 			if (defined(fallbackOrOptions.trueVals)) {
@@ -57,6 +58,8 @@ export function boolEnv(
 		}
 	}
 
+	const raw = env(name, disablePrefix);
+
 	if (defined(raw)) {
 		const normalizedEnv = raw.toLowerCase();
 
@@ -75,8 +78,10 @@ export function boolEnv(
 		return fallback();
 	}
 
+	const key = getPrefixedKey(name, disablePrefix);
+
 	if (!defined(raw)) {
-		throw missingEnvVar(name);
+		throw missingEnvVar(key);
 	}
 
 	let possibleValuesList = [...trueVals, ...falseVals].map(
@@ -92,6 +97,6 @@ export function boolEnv(
 	throw new EnvVarError(
 		`Expected boolean value (one of ${possibleValuesList.join(
 			', '
-		)}) for env var: ${name}.`
+		)}) for env var: ${key}.`
 	);
 }

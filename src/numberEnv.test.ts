@@ -37,6 +37,6 @@ it('throws when the specified environment variable is not a number', () => {
 	};
 
 	expect(numberEnv.bind(this, 'FOO')).toThrowErrorMatchingInlineSnapshot(
-		`"Expected a number for the environment variable \\"FOO\\"."`
+		`"Expected a number for the environment variable FOO."`
 	);
 });

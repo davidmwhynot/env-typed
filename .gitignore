@@ -32,4 +32,4 @@ node_modules/
 *.tgz
 
 # Build output
-lib
+/lib

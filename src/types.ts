@@ -47,6 +47,10 @@ export type BaseOptions<T> = {
 	 * TODO
 	 */
 	fallback?: FallbackValue<T>;
+	/**
+	 * TODO
+	 */
+	disablePrefix?: boolean;
 };
 
 /**
@@ -57,4 +61,23 @@ export type BoolEnvOptions = BoolOptions & BaseOptions<boolean>;
 /**
  * TODO
  */
-export type Config = BoolOptions;
+export type NumberEnvOptions = BaseOptions<number>;
+
+/**
+ * TODO
+ */
+export type RequireEnvOptions = BaseOptions<string>;
+
+/**
+ * TODO
+ */
+export type Config = {
+	/**
+	 * TODO
+	 */
+	boolOptions?: BoolOptions;
+	/**
+	 * TODO
+	 */
+	prefix?: string;
+};
